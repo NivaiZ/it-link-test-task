@@ -1,30 +1,102 @@
-# React + TypeScript + Vite
+# Тестовое задание для компании ИТ-ЛИНК с использованием Atomic Design
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+В рамках тестового задания нужно было переписать код, реализуя принцип атомарного дизайна с использованием Next.js и TypeScript. Цель состоит в создании переиспользуемых и инкапсулированных компонентов, следуя методологии атомарного дизайна.
 
-Currently, two official plugins are available:
+<pre>
+import { useState } from "react";
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+const Button = ({ children, ...props }) => (
+  <button {...props}>{children}</button>
+);
 
-## Expanding the ESLint configuration
+const Text = ({ children, ...props }) => <span {...props}>{children}</span>;
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+const ButtonText = ({ children, ...props }) => (
+  <Button {...props}>
+    <Text>{children}</Text>
+  </Button>
+);
 
-- Configure the top-level `parserOptions` property like this:
+const ButtonIncrement = () => {
+  const [index, setIndex] = useState(0);
+  const increment = () => setIndex(index + 1);
+  const decrement = () => setIndex(index - 1);
+  return (
+    <>
+      <Text>{index}</Text>
+      <ButtonText onClick={increment}>increment</ButtonText>
+      <ButtonText onClick={decrement}>decrement</ButtonText>
+    </>
+  );
+};
+</pre>
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+## Содержание
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- [Введение](#введение)
+- [Атомарный дизайн](#атомарный-дизайн)
+  - [Атомы](#атомы)
+  - [Молекулы](#молекулы)
+  - [Организмы](#организмы)
+- [Технологический стек](#технологический-стек)
+- [Преимущества атомарного дизайна](#преимущества-атомарного-дизайна)
+- [Начало работы](#начало-работы)
+- [Структура проекта](#структура-проекта)
+
+## Введение
+
+Атомарный дизайн - это методология создания дизайн-систем, которая разбивает интерфейс на более мелкие, переиспользуемые компоненты. Такой подход способствует консистентности и масштабируемости в разработке пользовательских интерфейсов.
+
+## Атомарный дизайн
+
+Атомарный дизайн состоит из пяти уровней:
+
+1. **Атомы**: Основные строительные блоки дизайна, такие как кнопки, поля ввода и ярлыки.
+2. **Молекулы**: Группы атомов, объединенные вместе и функционирующие как единое целое. Например, поле формы с ярлыком и вводом.
+3. **Организмы**: Сложные компоненты, состоящие из молекул и атомов, которые формируют более крупные части интерфейса.
+
+## Технологический стек
+
+- **Vite.js**
+- **React**
+- **TypeScript**
+
+## Преимущества атомарного дизайна
+
+1. **Переиспользуемость**: Компоненты создаются таким образом, чтобы их можно было использовать в различных частях приложения.
+2. **Поддерживаемость**: Легче поддерживать и обновлять маленькие, независимые компоненты.
+3. **Консистентность**: Единообразие в дизайне достигается за счет использования одних и тех же компонентов.
+4. **Масштабируемость**: Проект легко расширять благодаря модульной структуре компонентов.
+
+## Начало работы
+
+1. Клонируйте репозиторий: `git clone https://github.com/NivaiZ/it-link-test-task.git`
+2. Установите зависимости: `npm install`
+3. Запустите проект: `npm run dev`
+
+## Структура проекта
+
+it-link-test-task/<br>
+├── public/<br>
+├── src/<br>
+│ ├── components/<br>
+│ │ ├── atoms/<br>
+│ │ │ ├── Button.tsx<br>
+│ │ │ └── Text.tsx<br>
+│ │ ├── molecules/<br>
+│ │ │ └── ButtonText.tsx<br>
+│ │ ├── organisms/<br>
+│ │ │ ├── ButtonIncrement/<br>
+│ │ │ │ ├── buttonIncrement.module.css<br>
+│ │ │ │ └── ButtonIncrement.tsx<br>
+│ ├── pages/<br>
+│ │ └── index.tsx<br>
+├── .eslintrc.cjs<br>
+├── .gitignore<br>
+├── README.md<br>
+├── index.html<br>
+├── package-lock.json<br>
+├── package.json<br>
+├── tsconfig.json<br>
+├── tsconfig.node.json<br>
+└── vite.config.ts<br>

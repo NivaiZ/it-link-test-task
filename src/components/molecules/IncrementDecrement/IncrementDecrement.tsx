@@ -1,4 +1,3 @@
-// src/components/molecules/IncrementDecrement.tsx
 import Button from '../../atoms/Buttons/Buttons'
 import styles from './incrementDecrement.module.css'
 

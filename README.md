@@ -81,12 +81,19 @@ it-link-test-task/<br>
 ├── src/<br>
 │   ├── components/<br>
 │   │   ├── atoms/<br>
+│   │   ├── Buttons<br>
 │   │   │   ├── Button.tsx<br>
+│   │   │   ├── button.module.css<br>
+│   │   ├── Counter<br>
 │   │   │   ├── Counter.tsx<br>
-│   │   ├── molecules/<br>
-│   │   │   └── IncrementDecrement.tsx<br>
+│   │   │   ├── counter.module.css<br>
+│   │   ├── molecules<br>
+│   │   ├── IncrementDecrement/<br>
+│   │   │   ├── IncrementDecrement.tsx<br>
+│   │   │   ├── incrementDecrement.module.css<br>
 │   │   ├── organisms/<br>
-│   │   │   └── ButtonIncrement/<br>
+│   │   ├── ButtonIncrement/<br>
+│   │   │   └── ButtonIncrement.module.css/<br>
 │   │   │       └── ButtonIncrement.tsx<br>
 │   │   ├── templates/<br>
 │   ├── pages/<br>

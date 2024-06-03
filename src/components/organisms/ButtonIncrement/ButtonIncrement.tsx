@@ -1,23 +1,19 @@
-import React, { useState } from 'react'
-import Text from '../../atoms/Test'
-import ButtonText from '../../molecules/ButtonText'
+import { useState } from 'react'
+import Counter from '../../atoms/Counter/Counter'
+import IncrementDecrement from '../../molecules/IncrementDecrement/IncrementDecrement'
 import styles from './buttonIncrement.module.css'
 
-const ButtonIncrement: React.FC = () => {
-	const [index, setIndex] = useState(0)
-	const increment = () => setIndex(index + 1)
-	const decrement = () => setIndex(index - 1)
+const ButtonIncrement = () => {
+  const [index, setIndex] = useState(0);
+  const increment = () => setIndex(index + 1);
+  const decrement = () => setIndex(index - 1);
 
-	return (
-		<div>
-			<div className={styles.button__list}>
-				<ButtonText className={`${styles.button__operations} ${styles.button__decrement}`} onClick={decrement}>—</ButtonText>
-				<Text className={styles.button__counter}>{index}</Text>
-				<ButtonText className={`${styles.button__operations} ${styles.button__increment}`} onClick={increment}>+</ButtonText>
+  return (
+    <div className={styles.buttonIncrement}>
+      <Counter value={index} />
+      <IncrementDecrement onIncrement={increment} onDecrement={decrement} />
+    </div>
+  );
+};
 
-			</div>
-		</div>
-	)
-}
-
-export default ButtonIncrement
+export default ButtonIncrement;

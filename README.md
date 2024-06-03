@@ -79,18 +79,18 @@ const ButtonIncrement = () => {
 it-link-test-task/<br>
 ├── public/<br>
 ├── src/<br>
-│ ├── components/<br>
-│ │ ├── atoms/<br>
-│ │ │ ├── Button.tsx<br>
-│ │ │ └── Text.tsx<br>
-│ │ ├── molecules/<br>
-│ │ │ └── ButtonText.tsx<br>
-│ │ ├── organisms/<br>
-│ │ │ ├── ButtonIncrement/<br>
-│ │ │ │ ├── buttonIncrement.module.css<br>
-│ │ │ │ └── ButtonIncrement.tsx<br>
-│ ├── pages/<br>
-│ │ └── index.tsx<br>
+│   ├── components/<br>
+│   │   ├── atoms/<br>
+│   │   │   ├── Button.tsx<br>
+│   │   │   ├── Counter.tsx<br>
+│   │   ├── molecules/<br>
+│   │   │   └── IncrementDecrement.tsx<br>
+│   │   ├── organisms/<br>
+│   │   │   └── ButtonIncrement/<br>
+│   │   │       └── ButtonIncrement.tsx<br>
+│   │   ├── templates/<br>
+│   ├── pages/<br>
+│   │   └── index.tsx<br>
 ├── .eslintrc.cjs<br>
 ├── .gitignore<br>
 ├── README.md<br>

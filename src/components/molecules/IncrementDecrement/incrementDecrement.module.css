@@ -1,0 +1,12 @@
+.incrementDecrement {
+	display: flex;
+	width: 100%;
+}
+
+.incrementDecrement__decrement {
+	order: 1;
+}
+
+.incrementDecrement__increment {
+	order: 3;
+}

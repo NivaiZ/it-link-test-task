@@ -1,22 +1,18 @@
-import Button from '../../atoms/Buttons/Buttons'
+// src/molecules/IncrementDecrement.tsx
+import React from 'react'
+import ButtonText from '../ButtonText/ButtonText'
 import styles from './incrementDecrement.module.css'
 
 interface IncrementDecrementProps {
-  onIncrement: () => void
-  onDecrement: () => void
+  onIncrement: () => void;
+  onDecrement: () => void;
 }
 
-const IncrementDecrement = ({ onIncrement, onDecrement }: IncrementDecrementProps) => (
-  <>
+const IncrementDecrement: React.FC<IncrementDecrementProps> = ({ onIncrement, onDecrement }) => (
+  <div className={styles.button__list}>
+    <ButtonText className={styles.button__operations} onClick={onDecrement} type='button'>—</ButtonText>
+    <ButtonText className={styles.button__operations} onClick={onIncrement} type='button'>+</ButtonText>
+  </div>
+);
 
-    <div className={`${styles.incrementDecrement} ${styles.incrementDecrement__decrement}`}>
-      <Button onClick={onDecrement}>—</Button>
-    </div>
-
-    <div className={`${styles.incrementDecrement} ${styles.incrementDecrement__increment}`}>
-      <Button onClick={onIncrement}>+</Button>
-    </div>
-  </>
-)
-
-export default IncrementDecrement
+export default IncrementDecrement;
